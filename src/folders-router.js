@@ -9,13 +9,10 @@ const jsonParser = express.json()
 foldersRouter
     .route('/')
     .get((req,res,next) => {
-    console.error(err);
     const knexInstance = req.app.get('db')
     FoldersService.getAllFolders(knexInstance)
         .then(folders => {
             res.json(folders)
-            console.error(err);
-
         })
     .catch(next)
     })
